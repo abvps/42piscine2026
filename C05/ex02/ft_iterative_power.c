@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ana-viei <ana-viei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/09 18:18:56 by ana-viei          #+#    #+#             */
-/*   Updated: 2026/02/10 11:28:01 by ana-viei         ###   ########.fr       */
+/*   Created: 2026/02/10 14:14:25 by ana-viei          #+#    #+#             */
+/*   Updated: 2026/02/10 15:43:49 by ana-viei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putstr(char *str)
+int	ft_iterative_power(int nb, int power)
+
 {
 	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
+	i = 1;
+	if (nb < 0)
+		return (0);
+	if (nb == 0 || nb == 1)
+		return (1);
+	while (power > 0)
 	{
-		write (1, &str[i], 1);
-		i++;
+		i = i * nb;
+		power --;
 	}
+	return (i);
 }
 /*
 int main(void)
 {
-    char str[] = "Hi cutie\n";
-
-    ft_putstr(str);
-    return (0);
+	int nb = 2;
+	int power = 4;
+	printf("%d\n", ft_iterative_power(nb, power));
+	return (0);
 }
 */
