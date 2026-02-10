@@ -1,34 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ana-viei <ana-viei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/09 18:18:56 by ana-viei          #+#    #+#             */
-/*   Updated: 2026/02/10 11:28:01 by ana-viei         ###   ########.fr       */
+/*   Created: 2026/02/10 11:59:55 by ana-viei          #+#    #+#             */
+/*   Updated: 2026/02/10 14:00:24 by ana-viei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_putstr(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	int	i;
+	int	result;
 
-	i = 0;
-	while (str[i] != '\0')
+	result = 1;
+	if (nb < 0)
+		return (0);
+	while (nb > 0)
 	{
-		write (1, &str[i], 1);
-		i++;
+		result *= nb;
+		nb--;
 	}
+	return (result);
 }
 /*
-int main(void)
+int	main(void)
 {
-    char str[] = "Hi cutie\n";
+	int	nb;
 
-    ft_putstr(str);
-    return (0);
+	nb = 5;
+	printf("%d = %d\n", nb, ft_iterative_factorial(nb));
+
+	nb = 0;
+	printf("%d = %d\n", nb, ft_iterative_factorial(nb));
+
+	nb = -3;
+	printf("%d = %d\n", nb, ft_iterative_factorial(nb));
+
+	return (0);
 }
 */

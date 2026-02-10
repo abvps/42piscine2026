@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ana-viei <ana-viei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/09 18:18:56 by ana-viei          #+#    #+#             */
-/*   Updated: 2026/02/10 11:28:01 by ana-viei         ###   ########.fr       */
+/*   Created: 2026/02/10 14:02:21 by ana-viei          #+#    #+#             */
+/*   Updated: 2026/02/10 14:58:07 by ana-viei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_putstr(char *str)
+int	ft_recursive_factorial(int nb)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		write (1, &str[i], 1);
-		i++;
-	}
+	if (nb < 0)
+		return (0);
+	if (nb == 0 || nb == 1)
+		return (1);
+	return (nb * ft_recursive_factorial(nb - 1));
 }
-/*
-int main(void)
-{
-    char str[] = "Hi cutie\n";
 
-    ft_putstr(str);
-    return (0);
+/*
+int	main(void)
+{
+	printf("-1 = %d\n", ft_recursive_factorial(-1));
+	printf("0 = %d\n", ft_recursive_factorial(0));
+	printf("5 = %d\n", ft_recursive_factorial(5));
+	printf("1 = %d\n", ft_recursive_factorial(1));
 }
 */
