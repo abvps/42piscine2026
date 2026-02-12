@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ana-viei <ana-viei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 14:14:25 by ana-viei          #+#    #+#             */
-/*   Updated: 2026/02/12 09:07:24 by ana-viei         ###   ########.fr       */
+/*   Created: 2026/02/12 15:21:07 by ana-viei          #+#    #+#             */
+/*   Updated: 2026/02/12 15:28:58 by ana-viei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	ft_iterative_power(int nb, int power)
+int	main(int argc, char *argv[])
 {
-	int	result;
+	int	i;
+	int	j;
 
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	result = 1;
-	while (power > 0)
+	i = 1;
+	while (i < argc)
 	{
-		result = result * nb;
-		power--;
+		j = 0;
+		while (argv[i][j])
+		{
+			write(1, &argv[i][j], 1);
+			j++;
+		}
+		write(1, "\n", 1);
+		i++;
 	}
-	return (result);
-}
-
-/*
-int main(void)
-{
-	int nb = 2;
-	int power = 4;
-	printf("%d\n", ft_iterative_power(nb, power));
 	return (0);
 }
-*/

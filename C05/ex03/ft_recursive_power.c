@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ana-viei <ana-viei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 14:14:25 by ana-viei          #+#    #+#             */
-/*   Updated: 2026/02/12 09:07:24 by ana-viei         ###   ########.fr       */
+/*   Created: 2026/02/12 09:08:26 by ana-viei          #+#    #+#             */
+/*   Updated: 2026/02/12 09:24:48 by ana-viei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_iterative_power(int nb, int power)
+int	ft_recursive_power(int nb, int power)
 {
-	int	result;
-
 	if (power < 0)
 		return (0);
 	if (power == 0)
 		return (1);
-	result = 1;
-	while (power > 0)
-	{
-		result = result * nb;
-		power--;
-	}
-	return (result);
+	return (nb * ft_recursive_power(nb, power - 1));
 }
 
 /*
-int main(void)
+int	main(void)
 {
-	int nb = 2;
-	int power = 4;
-	printf("%d\n", ft_iterative_power(nb, power));
+	printf("2^3 = %d\n", ft_recursive_power(2, 3));
 	return (0);
 }
 */

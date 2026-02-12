@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ana-viei <ana-viei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 14:14:25 by ana-viei          #+#    #+#             */
-/*   Updated: 2026/02/12 09:07:24 by ana-viei         ###   ########.fr       */
+/*   Created: 2026/02/12 11:05:32 by ana-viei          #+#    #+#             */
+/*   Updated: 2026/02/12 11:16:13 by ana-viei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_iterative_power(int nb, int power)
-{
-	int	result;
+int	ft_is_prime(int nb)
 
-	if (power < 0)
+{
+	int	i;
+
+	if (nb <= 1)
 		return (0);
-	if (power == 0)
-		return (1);
-	result = 1;
-	while (power > 0)
+	i = 2;
+	while (i <= nb / 2)
 	{
-		result = result * nb;
-		power--;
+		if (nb % i == 0)
+			return (0);
+		i++;
 	}
-	return (result);
+	return (1);
 }
 
 /*
-int main(void)
+int	main(void)
 {
-	int nb = 2;
-	int power = 4;
-	printf("%d\n", ft_iterative_power(nb, power));
+	int i;
+
+	for (i = 0; i <= 20; i++)
+		printf("%d -> %d\n", i, ft_is_prime(i));
+
 	return (0);
 }
 */
